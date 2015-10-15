@@ -8,8 +8,14 @@ class Place < ActiveRecord::Base
     has_many :activities, through: :place_activities
 
     validates :name, uniqueness: true, presence: true, length: { maximum: 30 }
-    validates :description, presence: true, length: { maximum: 140 }
-    validates :price, presence: true, numericality: { only_integer: true }
-    validates :place_type, presence: true, inclusion: { in: %w(area country) }
-    validates :currency, presence: true, inclusion: { in: CURRENCY_LIST }
+    validates :description, length: { maximum: 140 }
+    validates :price, numericality: { only_integer: true }
+    validates :place_type, inclusion: { in: %w(area country) }
+    validates :currency, inclusion: { in: CURRENCY_LIST }
+    validates :description, :price, :place_type, :currency, presence: true, if: :area_type?
+
+
+    def area_type?
+        place_type == "area"
+    end
 end
