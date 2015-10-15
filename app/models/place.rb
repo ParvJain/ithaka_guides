@@ -1,5 +1,5 @@
 class Place < ActiveRecord::Base
-    CURRENCY_LIST = ["INR", "USD", "TBH"]
+    CURRENCY_LIST = ["INR", "USD", "THB"]
 
     has_many :children, class_name: "Place", foreign_key: "parent_id"
     belongs_to :parent, class_name: "Place"
