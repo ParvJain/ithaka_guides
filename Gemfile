@@ -8,6 +8,8 @@ gem 'spring', :group => :development
 
 gem 'pg'
 gem 'active_model_serializers'
+# gem 'unicorn'
+gem 'thin'
 
 
 

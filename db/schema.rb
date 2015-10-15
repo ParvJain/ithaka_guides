@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015201126) do
+ActiveRecord::Schema.define(version: 20151015210151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "place_activities", id: false, force: :cascade do |t|
+    t.integer  "place_id",    null: false
+    t.integer  "activity_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "place_activities", ["activity_id"], name: "index_place_activities_on_activity_id", using: :btree
+  add_index "place_activities", ["place_id"], name: "index_place_activities_on_place_id", using: :btree
 
   create_table "places", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +40,9 @@ ActiveRecord::Schema.define(version: 20151015201126) do
     t.string   "place_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "parent_id"
+    t.integer  "distance"
+    t.integer  "source_id"
   end
 
   create_table "users", force: :cascade do |t|
