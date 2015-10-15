@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :place_activities, except: [:new, :edit]
-  resources :activities, except: [:new, :edit]
-  resources :users, except: [:new, :edit]
+  # resources :users, except: [:new, :edit]
   resources :places, except: [:new, :edit]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
