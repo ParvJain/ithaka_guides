@@ -8,10 +8,10 @@ gem 'spring', :group => :development
 
 gem 'pg'
 gem 'active_model_serializers'
-# gem 'unicorn'
 gem 'thin'
 gem 'bcrypt'
-
+gem 'protected_attributes'
+gem 'doorkeeper'
 
 
 # To use ActiveModel has_secure_password
