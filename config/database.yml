@@ -9,8 +9,8 @@ default: &default
   pool: 5
   timeout: 5000
   encoding: unicode
-  username: ashish
-  password: ashish
+  username: postgres
+  password: ubuntu
 
 development:
   <<: *default
