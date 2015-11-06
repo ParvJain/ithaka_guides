@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # resources :users, except: [:new, :edit]
   resources :places, except: [:new, :edit]
 
